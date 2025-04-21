@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaled Hassan Ali - Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light-color);
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+        
+        .objective-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .detail-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: -150px;
+            top: 20px;
+            color: var(--text-light);
+            font-weight: bold;
+            width: 120px;
+            text-align: right;
+        }
+        
+        .timeline-title {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-subtitle {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .timeline-description {
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-year {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .project-scope {
+            margin-top: 1rem;
+        }
+        
+        .project-scope h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .education-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-year {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .reference-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .reference-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .reference-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .reference-contact {
+            margin-top: 1rem;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline-date {
+                position: static;
+                width: auto;
+                text-align: left;
+                margin-bottom: 0.5rem;
+                color: var(--primary-color);
+            }
+            
+            .timeline-item::before {
+                left: -30px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            header, section, footer {
+                padding: 1rem 0;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .section-title::after {
+                background-color: black;
+            }
+            
+            .detail-item, .timeline-item, .skill-category, .project-card, .education-item, .reference-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            
+            .contact-info a {
+                color: black;
+            }
+            
+            footer {
+                margin-top: 0;
+            }
+            
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="./img/f27ed4da-7e17-4f47-9b86-89a8a44aa569.jpeg" alt="Khaled Hassan Ali" class="profile-img">
+            <h1>Khaled Hassan Ali</h1>
+            <p class="subtitle">Customer Relations Manager | CRM administrative</p>
+            <div class="contact-info">
+                <a href="tel:+201229599091"><i class="fas fa-phone"></i> 01229599091</a>
+                <a href="tel:+201554300091"><i class="fas fa-phone"></i> 01554300091</a>
+                <a href="mailto:kh66391@gmail.com"><i class="fas fa-envelope"></i> kh66391@gmail.com</a>
+                <a href="https://www.linkedin.com/in/khaled-hassan-7671b3105" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="objective">
+        <div class="container">
+            <h2 class="section-title">Objective</h2>
+            <div class="objective-text">
+                <p>With more than 9 years of experience in the field of customer relations B2B & B2C (Reception - call center, customer experience - customer success - Customer service - Tele sales - Digital Marketing) I would like to add my experience and achieve new achievements in a new place, whether in the medical field or others.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="personal-details">
+        <div class="container">
+            <h2 class="section-title">Personal Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>Date of Birth</h3>
+                    <p>15-1-1995</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Nationality</h3>
+                    <p>Egyptian</p>
+                </div>
+                <div class="detail-item">
+                    <h3>Driving Licence</h3>
+                    <p>Motorcycle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">12/2024 - Present</div>
+                    <h3 class="timeline-title">Future Hospital (General)</h3>
+                    <h4 class="timeline-subtitle">Customer Relations Manager</h4>
+                    <div class="timeline-description">
+                        <p>Establishing a customer relationship management structure in terms of staff preparation, job tasks, the management hierarchy and the kpi of each department for each of the following departments:</p>
+                        <ul>
+                            <li>Reception</li>
+                            <li>Customer service</li>
+                            <li>Patient experience</li>
+                            <li>Digital Marketing</li>
+                            <li>Call center</li>
+                            <li>Tele sales</li>
+                            <li>OPD Manager</li>
+                            <li>OR Coordinator</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">4/2024 - 4/2025</div>
+                    <h3 class="timeline-title">Elhayah Groups For Addiction treatment (Mental Health)</h3>
+                    <h4 class="timeline-subtitle">Customer Relations Manager</h4>
+                    <div class="timeline-description">
+                        <ul>
+                            <li>Creation and development of a new system for Call center departments, customer service, reception Department, and customer experience</li>
+                            <li>Establish and maintain positive relationships with existing clients</li>
+                            <li>Provide prompt, efficient, and satisfactory responses to customer inquiries</li>
+                            <li>Identify opportunities for improving the customer experience and provide feedback to relevant teams and departments</li>
+                            <li>Analyse customer data to identify patterns and insights; and leverage this information to enhance customer relationship management strategies</li>
+                            <li>Collaborate with other departments (marketing, sales, logistics, and product development) to optimise the existing customer experience journey</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">6/2021 - 4/2024</div>
+                    <h3 class="timeline-title">Care Hub (Home Hospital)</h3>
+                    <h4 class="timeline-subtitle">Customer Relations Supervisor</h4>
+                    <div class="timeline-description">
+                        <p>Supervising the customer relations departments and establishing some departments:</p>
+                        <p>Call center departments-customer service-telesales Department-customer experience-doctors and hospitals relations</p>
+                        <ul>
+                            <li>Handle all inbound/outbound calls</li>
+                            <li>Provide follow up, occasional campaigns and call backs blended with normal inbound calls</li>
+                            <li>Provide best possible service to both external and internal customers to achieve highest level of customer satisfaction</li>
+                            <li>Handle and solve all inquiries, requests and complaints received via all channels available (phone, e-mail etc.)</li>
+                            <li>Communicate with other Customer Service sub-divisions to answer all relevant customer inquiries</li>
+                            <li>Communicate with other departments all relevant customer inquiries if applicable</li>
+                            <li>Achieve the requested staffed time on a daily basis to minimize lost call rate</li>
+                            <li>Provide proper information to customers with complete and comprehensive understanding of products and services</li>
+                            <li>Fully understand and adhere to company policies and procedures that generate personal and professional credibility and trust</li>
+                            <li>Resolve all customer complaints, requests</li>
+                            <li>Escalate problems, report suspected fraud and provides relevant feedback to the right channels</li>
+                        </ul>
+                        <h4>Customer Experience:</h4>
+                        <ul>
+                            <li>Design & Improve the customer experience</li>
+                            <li>Begins with understanding each customer and their specific need</li>
+                            <li>Set a clear vision so that the entire process is transparent for the client</li>
+                            <li>Build strong relationships with clients that are fostered by gathering customer feedback in real time</li>
+                            <li>Incorporate feedback into the sales process to improve the overall customer experience</li>
+                            <li>Increase customer satisfaction, loyalty, and advocacy</li>
+                            <li>Strategy that focuses on managing customer information to drive sales into the business and increase customer retention</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2016 - 2019</div>
+                    <h3 class="timeline-title">Ibrahim Nada Hospital (General)</h3>
+                    <h4 class="timeline-subtitle">Front Office Supervisor - Duty Manager</h4>
+                    <div class="timeline-description">
+                        <p>Supervisors ensure that all front office and guest services team members receive adequate training in all Front Desk policies and procedures.</p>
+                        <ul>
+                            <li>Assist the Front Office Manager in motivating the team and participate in the training and development of all Front Office staff</li>
+                            <li>Check arrivals of VIP guests, are in charge of possible upgrades</li>
+                            <li>Verify the accuracy of the cash drawers at the beginning of the shift and supervise the close-out of shift work and cash at the end of the shift</li>
+                            <li>Communicate all important information to the following shift to ensure a smooth transition through the Front Desk logbook</li>
+                            <li>Answering all telephone inquiries and transferring calls</li>
+                            <li>Making hospital admission procedures</li>
+                            <li>Daily reports</li>
+                            <li>Coordination of booking of patients' rooms</li>
+                            <li>Follow-up of patients of the intensive care unit, neonatal intensive care unit and collection of insurance amounts and special amounts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>El Fanar Labs (Laboratory)</h3>
+                    <span class="project-year">2023</span>
+                    <p>Design and implement a CRM system that enhances customer engagement, streamlines business processes, and improves sales and customer service efficiency.</p>
+                    <div class="project-scope">
+                        <h4>Scope of the Project:</h4>
+                        <ul>
+                            <li>Customer Management</li>
+                            <li>Sales Management</li>
+                            <li>Marketing Automation</li>
+                            <li>Customer Support</li>
+                            <li>Customer Experience</li>
+                            <li>Integration with ERP (Odoo)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>GAHAR EGYCAP - Alexa 360 (Business solution) (Kuwait)</h3>
+                    <span class="project-year">2023</span>
+                    <p>Strengthening relationships with customers in various countries, understanding the core needs in different industries, and increasing sales percentages.</p>
+                    <div class="project-scope">
+                        <h4>Scope of the Project:</h4>
+                        <ul>
+                            <li>Team Leadership and Development</li>
+                            <li>Complaint Resolution</li>
+                            <li>Customer Feedback and Improvement</li>
+                            <li>Operational Management</li>
+                            <li>Communication and Coordination</li>
+                            <li>Sales Support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Leader Gym</h3>
+                    <span class="project-year">2021</span>
+                    <p>Development and improvement of front offices and training of employees on the rules for dealing with customers.</p>
+                    <div class="project-scope">
+                        <h4>Scope of the Project:</h4>
+                        <ul>
+                            <li>Team Leadership and Development</li>
+                            <li>Complaint Resolution</li>
+                            <li>Customer Feedback and Improvement</li>
+                            <li>Operational Management</li>
+                            <li>Communication and Coordination</li>
+                            <li>Sales Support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Faculty of Law</h3>
+                    <p>Bachelor</p>
+                    <p>Alexandria University</p>
+                    <span class="education-year">2013</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Human Development</h3>
+                    <p>Alexandria University</p>
+                    <span class="education-year">2013</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>ICDL</h3>
+                    <p>MS&Partners</p>
+                    <span class="education-year">2019</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Communication & Sales Skills</h3>
+                    <p>Magnificent Training</p>
+                    <span class="education-year">2022</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Customer Service Diploma</h3>
+                    <p>Udemy</p>
+                    <span class="education-year">2023</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Building and Managing a CRM System (Vtiger)</h3>
+                    <p>Udemy</p>
+                    <span class="education-year">2024</span>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Power BI</h3>
+                    <p>Udemy</p>
+                    <span class="education-year">2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages">
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>Arabic</h3>
+                    <p>Mother tongue</p>
+                </div>
+                <div class="detail-item">
+                    <h3>English</h3>
+                    <p>B2 Level</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Office</li>
+                        <li>Windows</li>
+                        <li>Google Services</li>
+                        <li>Power BI</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Health Information Systems</h3>
+                    <ul class="skill-list">
+                        <li>O.P.S</li>
+                        <li>Code Zone</li>
+                        <li>Prime Care</li>
+                        <li>Me doc</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>API</h3>
+                    <ul class="skill-list">
+                        <li>Chatter</li>
+                        <li>Respond</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>CRM Systems</h3>
+                    <ul class="skill-list">
+                        <li>Zoho</li>
+                        <li>Vtiger</li>
+                        <li>Bricks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests">
+        <div class="container">
+            <h2 class="section-title">Interests</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <h3>Gymnastics</h3>
+                </div>
+                <div class="detail-item">
+                    <h3>E-Games</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="references">
+        <div class="container">
+            <h2 class="section-title">References</h2>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <h3>Dr. Ibrahim Nada</h3>
+                    <p class="reference-position">GM - Ibrahim Nada Hospital</p>
+                    <p>+2001010007779</p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3>Dr. Kirolls Ezzat</h3>
+                    <p class="reference-position">CEO - Care Hub</p>
+                    <p>+2001012733771</p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3>Mr. Ahmed Ragab</h3>
+                    <p class="reference-position">HR Manager - El Fanar Labs</p>
+                    <p>+2001090033275</p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3>Asmaa Adel</h3>
+                    <p class="reference-position">HR Manager - El Hayah Centers</p>
+                    <p>+201555186691</p>
+                </div>
+                
+                <div class="reference-card">
+                    <h3>Amira Abdelalem</h3>
+                    <p class="reference-position">HR Manager - Future Hospital</p>
+                    <p>+200109280228</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Khaled Hassan Ali. All rights reserved.</p>
+            <p>Designed with HTML, CSS, and JavaScript</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Add animation delay to sections for sequential appearance
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Print functionality
+            const printButton = document.createElement('button');
+            printButton.innerHTML = '<i class="fas fa-print"></i> Print Resume';
+            printButton.style.position = 'fixed';
+            printButton.style.bottom = '20px';
+            printButton.style.right = '20px';
+            printButton.style.padding = '10px 15px';
+            printButton.style.backgroundColor = '#2c3e50';
+            printButton.style.color = 'white';
+            printButton.style.border = 'none';
+            printButton.style.borderRadius = '5px';
+            printButton.style.cursor = 'pointer';
+            printButton.style.zIndex = '1000';
+            printButton.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+            
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+            
+            document.body.appendChild(printButton);
+        });
+    </script>
+</body>
+</html>
